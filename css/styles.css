@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  background-color: #f1f1f1;
+  color: #333;
+  font-family: 'Roboto', Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  width: 80%;
+  max-width: 600px;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #1f82b7;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #1f82b7;
+}
+
+label i {
+  margin-right: 10px;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+textarea {
+  height: 100px;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1f82b7;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button i {
+  margin-right: 5px;
+}
+
+button:hover {
+  background-color: #f03d7f;
+  color: #fff;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:disabled:hover {
+  background-color: #ccc;
+  color: #fff;
+}

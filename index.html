@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Envío de SMS con Twilio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://media.twiliocdn.com/sdk/js/client/v1.20/twilio.min.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Envío de SMS con Twilio</h1>
+    <form>
+      <label for="telefono"><i class="fas fa-phone-alt"></i> Números de teléfono:</label>
+      <input type="text" id="telefono" placeholder="Ingrese uno o varios números de teléfono">
+
+      <label for="mensaje"><i class="fas fa-comment"></i> Mensaje:</label>
+      <textarea id="mensaje" placeholder="Ingrese su mensaje"></textarea>
+
+      <button type="button" onclick="enviarMensaje()"><i class="fas fa-paper-plane"></i> Enviar</button>
+    </form>
+  </div>
+</body>
+</html>
