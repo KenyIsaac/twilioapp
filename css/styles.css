@@ -1,87 +1,173 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-body {
-  background-color: #f1f1f1;
-  color: #333;
-  font-family: 'Roboto', Arial, sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-.container {
-  width: 80%;
-  max-width: 600px;
-  padding: 40px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #1f82b7;
-}
-
-label {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  color: #1f82b7;
-}
-
-label i {
-  margin-right: 10px;
-}
-
-input,
-textarea {
-  display: block;
-  width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 15px;
-  text-align: center;
-  font-family: 'Roboto', Arial, sans-serif;
-}
-
-textarea {
-  height: 100px;
-}
-
-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #1f82b7;
-  color: #fff;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  margin-top: 20px;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-button i {
-  margin-right: 5px;
-}
-
-button:hover {
-  background-color: #f03d7f;
-  color: #fff;
-}
-
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-button:disabled:hover {
-  background-color: #ccc;
-  color: #fff;
-}
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .input-placeholder {
+    display: block;
+    color: #999;
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+  
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  #responseMessage {
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    background-color: #f8d7da;
+    color: #721c24;
+    border-radius: 5px;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+  }
+  
+  .menu-bar {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+  }
+  
+  .navbar-title {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .navbar-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .navbar-menu-show {
+    transform: translateX(0);
+  }
+  
+  .navbar-menu-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+  }
+  
+  .close-icon {
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .navbar-menu-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  
+  .navbar-menu-item {
+    margin-bottom: 10px;
+  }
+  
+  .navbar-menu-item a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 1.1rem;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .container {
+      margin-top: 100px;
+    }
+  
+    .navbar-icon {
+      display: block;
+    }
+  
+    .navbar-menu-list {
+      padding: 20px;
+    }
+  
+    .navbar-menu-item {
+      margin-bottom: 20px;
+    }
+  }
+  
