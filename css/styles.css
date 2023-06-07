@@ -1,7 +1,121 @@
-* {
-    box-sizing: border-box;
+/* Estilos para la animación de carga */
+@keyframes loaderAnimation {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
   }
   
+  #loadingScreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 9999;
+  }
+  
+  .loader {
+    width: 80px;
+    height: 80px;
+    border: 8px solid #bbb;
+    border-radius: 50%;
+    animation: loaderAnimation 3s infinite cubic-bezier(0.5, 0, 0.5, 1);
+  }
+  
+  /* Estilos para la barra de navegación */
+  .navbar {
+    background-color: #007bff;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    z-index: 999;
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+  }
+  
+  .menu-bar {
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    margin-bottom: 4px;
+  }
+  
+  .navbar-title {
+    margin-left: 10px;
+    font-size: 18px;
+  }
+  
+  .navbar-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 250px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 40px 20px;
+    transition: left 0.3s ease-in-out;
+    z-index: 998;
+  }
+  
+  .navbar-menu-show {
+    left: 0;
+  }
+  
+  .navbar-menu-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+  
+  .close-icon {
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .navbar-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navbar-menu-item {
+    margin-bottom: 10px;
+  }
+  
+  .navbar-menu-item a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  /* Estilos adicionales */
   body {
     margin: 0;
     padding: 0;
@@ -66,108 +180,5 @@
     background-color: #f8d7da;
     color: #721c24;
     border-radius: 5px;
-  }
-  
-  .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-  }
-  
-  .navbar-logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .navbar-icon {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    cursor: pointer;
-  }
-  
-  .menu-bar {
-    width: 100%;
-    height: 3px;
-    background-color: #fff;
-  }
-  
-  .navbar-title {
-    font-size: 1.2rem;
-    text-align: center;
-    margin: 0;
-  }
-  
-  .navbar-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .navbar-menu-show {
-    transform: translateX(0);
-  }
-  
-  .navbar-menu-header {
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px;
-  }
-  
-  .close-icon {
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-  
-  .navbar-menu-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-  }
-  
-  .navbar-menu-item {
-    margin-bottom: 10px;
-  }
-  
-  .navbar-menu-item a {
-    display: block;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px;
-    font-size: 1.1rem;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .container {
-      margin-top: 100px;
-    }
-  
-    .navbar-icon {
-      display: block;
-    }
-  
-    .navbar-menu-list {
-      padding: 20px;
-    }
-  
-    .navbar-menu-item {
-      margin-bottom: 20px;
-    }
   }
   

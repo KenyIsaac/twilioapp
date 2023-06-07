@@ -1,49 +1,60 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var navbarToggle = document.getElementById('navbarToggle');
-    var navbarMenu = document.getElementById('navbarMenu');
-    var closeMenu = document.getElementById('closeMenu');
-  
-    navbarToggle.addEventListener('click', function() {
-      navbarMenu.classList.toggle('navbar-menu-show');
-    });
-  
-    closeMenu.addEventListener('click', function() {
-      navbarMenu.classList.remove('navbar-menu-show');
-    });
-  
-    var messageForm = document.getElementById('messageForm');
-    var responseMessage = document.getElementById('responseMessage');
-  
-    messageForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-  
-      var phoneNumbers = document.getElementById('phoneNumbers').value;
-      var message = document.getElementById('message').value;
-  
-      var phoneNumbersArray = phoneNumbers.split(',');
-      var promises = [];
-  
-      phoneNumbersArray.forEach(function(number) {
-        promises.push(sendMessage(number.trim(), message));
-      });
-  
-      Promise.all(promises)
-        .then(function() {
-          responseMessage.innerText = 'Mensajes enviados exitosamente.';
-          messageForm.reset();
-        })
-        .catch(function() {
-          responseMessage.innerText = 'Hubo un error al enviar los mensajes.';
-        });
-    });
-  
-    function sendMessage(phoneNumber, message) {
-      return new Promise(function(resolve, reject) {
-        // Aquí va la lógica para enviar el mensaje
-        // ...
-        // Si el mensaje se envía exitosamente, se llama a resolve()
-        // Si hay algún error al enviar el mensaje, se llama a reject()
-      });
-    }
+// Obtener elementos del DOM
+var navbarToggle = document.getElementById('navbarToggle');
+var closeMenu = document.getElementById('closeMenu');
+var navbarMenu = document.getElementById('navbarMenu');
+var messageForm = document.getElementById('messageForm');
+var responseMessage = document.getElementById('responseMessage');
+
+// Evento para abrir y cerrar el menú de navegación
+navbarToggle.addEventListener('click', function() {
+  navbarMenu.classList.toggle('navbar-menu-show');
+});
+
+closeMenu.addEventListener('click', function() {
+  navbarMenu.classList.remove('navbar-menu-show');
+});
+
+// Evento de envío de formulario
+messageForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  var phoneNumbersInput = document.getElementById('phoneNumbers');
+  var messageInput = document.getElementById('message');
+
+  var phoneNumbers = phoneNumbersInput.value.trim();
+  var message = messageInput.value.trim();
+
+  if (phoneNumbers === '' || message === '') {
+    responseMessage.textContent = 'Por favor, complete todos los campos.';
+    return;
+  }
+
+  var numbersArray = phoneNumbers.split(',');
+
+  // Eliminar espacios en blanco alrededor de los números de teléfono
+  numbersArray = numbersArray.map(function(number) {
+    return number.trim();
   });
-  
+
+  // Enviar mensajes a los números de teléfono
+  sendMessages(numbersArray, message);
+
+  // Restablecer valores del formulario
+  phoneNumbersInput.value = '';
+  messageInput.value = '';
+  responseMessage.textContent = 'Enviando mensajes...';
+
+  // Deshabilitar el botón de envío mientras se envían los mensajes
+  var submitButton = messageForm.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
+});
+
+// Función para enviar mensajes a través de una API
+function sendMessages(numbersArray, message) {
+  // Simulación de envío exitoso después de 2 segundos
+  setTimeout(function() {
+    responseMessage.textContent = 'Mensajes enviados exitosamente a ' + numbersArray.join(', ');
+    var submitButton = messageForm.querySelector('button[type="submit"]');
+    submitButton.disabled = false;
+  }, 2000);
+}
